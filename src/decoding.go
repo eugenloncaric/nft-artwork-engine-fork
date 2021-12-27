@@ -20,19 +20,36 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// Reading/ decoding a png file
+
 package decoding
 
-import(
-"encoding/base64"
-"fmt"
-"image"
-"log"
-"strings"
-"image/png"
-"image/gif"
-"image/jpeg"
+import (
+	"fmt"
+	"image"
+	"image/png"
+	"log"
+	"os"
 )
 
-func main() {
+func Loadfile() {
+	catFile, err := os.Open("artwork.png")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer catFile.Close()
 
+	imData, imType, err := image.Decode(catFile)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(imData)
+	fmt.Println(imType)
+
+	cat, err := png.Decode(catFile)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(err)
 }

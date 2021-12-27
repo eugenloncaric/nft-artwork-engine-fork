@@ -20,13 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-
 package main
 
 import (
-"fmt"
+	"fmt"
+
+	"proton-software/nft-artwork-engine/src/readFile"
 )
 
 func main() {
-
+	readFile.Readfile()
+	fmt.Println("Should have loaded module successfully")
 }
